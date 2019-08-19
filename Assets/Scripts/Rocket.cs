@@ -23,6 +23,7 @@ public class Rocket : MonoBehaviour
     {
         Thrust();
         Rotate();
+        //Camera.main.transform.position = this.transform.position + (Vector3.forward * -10f);
     }
 
     void OnCollisionEnter(Collision collision)
