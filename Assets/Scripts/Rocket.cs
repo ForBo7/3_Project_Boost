@@ -5,9 +5,16 @@ public class Rocket : MonoBehaviour
 {
     [SerializeField] float rcsThrust = 100f;
     [SerializeField] float mainThrust = 100f;
+
     [SerializeField] AudioClip mainEngine;
     [SerializeField] AudioClip deathSound;
     [SerializeField] AudioClip levelComplete;
+
+    [SerializeField] ParticleSystem mainEngineParticles;
+    [SerializeField] ParticleSystem leftRCSParticles;
+    [SerializeField] ParticleSystem rightRCSParticles;
+    [SerializeField] ParticleSystem deathParticles;
+    [SerializeField] ParticleSystem levelCompleteParticles;
 
     Rigidbody rigidBody;
     AudioSource audioSource;
@@ -28,7 +35,7 @@ public class Rocket : MonoBehaviour
         // todo somewhere stop sound on death
         if (state == State.Alive)
         {
-            Thrust();
+            ThrustSequence();
             Rotate();
         }
         
@@ -61,6 +68,8 @@ public class Rocket : MonoBehaviour
         Debug.Log(collision.gameObject.tag);
         state = State.Transcending;
         audioSource.Stop();
+        mainEngineParticles.Stop();
+        levelCompleteParticles.Play();
         audioSource.PlayOneShot(levelComplete);
         Invoke("LoadNextLevel", 1.5f);
     }
@@ -69,6 +78,8 @@ public class Rocket : MonoBehaviour
     {
         state = State.Dying;
         audioSource.Stop();
+        mainEngineParticles.Stop();
+        deathParticles.Play();
         audioSource.PlayOneShot(deathSound);
         Invoke("LoadFirstLevel", 1.5f);
     }
@@ -88,18 +99,33 @@ public class Rocket : MonoBehaviour
         Debug.Log("First level loaded");
     }
 
-    private void Thrust()
+    private void ThrustSequence()
     {
         float flightThisFrame = mainThrust * Time.deltaTime;
 
         if (Input.GetKey(KeyCode.W)) // 'W' has its own if statement so that turning while thrusting can happen
         {
-            rigidBody.AddRelativeForce(Vector3.up * flightThisFrame);
+            Thrusting(flightThisFrame);
             PlayThrustAudio();
         }
         else
         {
+            mainEngineParticles.Stop();
             audioSource.Stop();
+        }
+    }
+
+    private void Thrusting(float flightThisFrame)
+    {
+        rigidBody.AddRelativeForce(Vector3.up * flightThisFrame);
+        mainEngineParticles.Play();
+    }
+
+    private void PlayThrustAudio()
+    {
+        if (!audioSource.isPlaying) // So that multiple instances of the audio don't start playing.
+        {
+            audioSource.PlayOneShot(mainEngine);
         }
     }
 
@@ -112,23 +138,33 @@ public class Rocket : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             transform.Rotate(Vector3.forward * rotationThisFrame);
+            //rightRCSParticles.Play();
         }
         else if (Input.GetKey(KeyCode.D))
         {
             transform.Rotate(-Vector3.forward * rotationThisFrame);
+            //leftRCSParticles.Play();
         }
 
         rigidBody.freezeRotation = false; // resume physics control of rotation
     }
 
-    private void PlayThrustAudio()
-    {
-        if (!audioSource.isPlaying) // So that multiple instances of the audio don't start playing.
-        {
-            audioSource.PlayOneShot(mainEngine);
-        }
-    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //public class Rocket : MonoBehaviour
 //{
