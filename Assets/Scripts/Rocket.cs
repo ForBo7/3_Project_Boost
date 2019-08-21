@@ -5,6 +5,9 @@ public class Rocket : MonoBehaviour
 {
     [SerializeField] float rcsThrust = 100f;
     [SerializeField] float mainThrust = 100f;
+    [SerializeField] AudioClip mainEngine;
+    [SerializeField] AudioClip deathSound;
+    [SerializeField] AudioClip levelComplete;
 
     Rigidbody rigidBody;
     AudioSource audioSource;
@@ -36,7 +39,7 @@ public class Rocket : MonoBehaviour
     {
         if (state != State.Alive)
         {
-            return; // this stops everything beneath from executing/ quits the function
+            return; // this stops everything beneath from executing/quits the function
         }
 
         switch (collision.gameObject.tag)
@@ -45,22 +48,37 @@ public class Rocket : MonoBehaviour
                 Debug.Log(collision.gameObject.tag);
                 break;
             case "Finish":
-                Debug.Log(collision.gameObject.tag);
-                state = State.Transcending;
-                //Invoke("LoadNextLevel", 2f);
-                LoadNextLevel();
+                StartLevelCompleteSequence(collision);
                 break;
             default:
-                state = State.Dying;
-                Invoke("LoadFirstLevel", 2f);
-                //LoadFirstLevel();
+                StartDeathSequence();
                 break;
         }
     }
 
+    private void StartLevelCompleteSequence(Collision collision)
+    {
+        Debug.Log(collision.gameObject.tag);
+        state = State.Transcending;
+        audioSource.Stop();
+        audioSource.PlayOneShot(levelComplete);
+        Invoke("LoadNextLevel", 1.5f);
+    }
+
+    private void StartDeathSequence()
+    {
+        state = State.Dying;
+        audioSource.Stop();
+        audioSource.PlayOneShot(deathSound);
+        Invoke("LoadFirstLevel", 1.5f);
+    }
+
+    
+
     private void LoadNextLevel()
     {
         SceneManager.LoadScene(1); // todo allow for more than 2 levels
+        audioSource.PlayOneShot(levelComplete);
         Debug.Log("Next level loaded");
     }
 
@@ -77,10 +95,7 @@ public class Rocket : MonoBehaviour
         if (Input.GetKey(KeyCode.W)) // 'W' has its own if statement so that turning while thrusting can happen
         {
             rigidBody.AddRelativeForce(Vector3.up * flightThisFrame);
-            if (!audioSource.isPlaying) // So that multiple instances of the audio don't start playing.
-            {
-                audioSource.Play();
-            }
+            PlayThrustAudio();
         }
         else
         {
@@ -106,23 +121,27 @@ public class Rocket : MonoBehaviour
         rigidBody.freezeRotation = false; // resume physics control of rotation
     }
 
-
+    private void PlayThrustAudio()
+    {
+        if (!audioSource.isPlaying) // So that multiple instances of the audio don't start playing.
+        {
+            audioSource.PlayOneShot(mainEngine);
+        }
+    }
 }
 
 //public class Rocket : MonoBehaviour
 //{
-
-//    // todo fix lighting bug
 //    [SerializeField] float rcsThrust = 100f;
 //    [SerializeField] float mainThrust = 100f;
 
 //    Rigidbody rigidBody;
 //    AudioSource audioSource;
 
-//    enum State { Alive, Dying, Transcending }
+//    enum State { Alive, Dying, Transcending };
 //    State state = State.Alive;
 
-//    // Use this for initialization
+//    // Start is called before the first frame update
 //    void Start()
 //    {
 //        rigidBody = GetComponent<Rigidbody>();
@@ -132,31 +151,25 @@ public class Rocket : MonoBehaviour
 //    // Update is called once per frame
 //    void Update()
 //    {
-//        // todo somewhere stop sound on death
-//        if (state == State.Alive)
-//        {
-//            Thrust();
-//            Rotate();
-//        }
+//        Thrust();
+//        Rotate();
+//        //Camera.main.transform.position = this.transform.position + (Vector3.forward * -10f);
 //    }
 
 //    void OnCollisionEnter(Collision collision)
 //    {
-//        if (state != State.Alive) { return; } // ignore collisions when dead
-
 //        switch (collision.gameObject.tag)
 //        {
 //            case "Friendly":
-//                // do nothing
+//                Debug.Log(collision.gameObject.tag);
 //                break;
 //            case "Finish":
+//                Debug.Log(collision.gameObject.tag);
 //                state = State.Transcending;
-//                Invoke("LoadNextLevel", 1f); // parameterise time
+//                Invoke("LoadNextLevel", 20f);
 //                break;
 //            default:
-//                print("Hit something deadly");
-//                state = State.Dying;
-//                Invoke("LoadFirstLevel", 1f); // parameterise time
+//                SceneManager.LoadScene(0);
 //                break;
 //        }
 //    }
@@ -164,19 +177,17 @@ public class Rocket : MonoBehaviour
 //    private void LoadNextLevel()
 //    {
 //        SceneManager.LoadScene(1); // todo allow for more than 2 levels
-//    }
-
-//    private void LoadFirstLevel()
-//    {
-//        SceneManager.LoadScene(0);
+//        Debug.Log("Next level loaded");
 //    }
 
 //    private void Thrust()
 //    {
-//        if (Input.GetKey(KeyCode.W)) // can thrust while rotating
+//        float flightThisFrame = mainThrust * Time.deltaTime;
+
+//        if (Input.GetKey(KeyCode.W)) // 'W' has its own if statement so that turning while thrusting can happen
 //        {
-//            rigidBody.AddRelativeForce(Vector3.up * mainThrust);
-//            if (!audioSource.isPlaying) // so it doesn't layer
+//            rigidBody.AddRelativeForce(Vector3.up * flightThisFrame);
+//            if (!audioSource.isPlaying) // So that multiple instances of the audio don't start playing.
 //            {
 //                audioSource.Play();
 //            }
@@ -192,6 +203,7 @@ public class Rocket : MonoBehaviour
 //        rigidBody.freezeRotation = true; // take manual control of rotation
 
 //        float rotationThisFrame = rcsThrust * Time.deltaTime;
+
 //        if (Input.GetKey(KeyCode.A))
 //        {
 //            transform.Rotate(Vector3.forward * rotationThisFrame);
@@ -203,5 +215,7 @@ public class Rocket : MonoBehaviour
 
 //        rigidBody.freezeRotation = false; // resume physics control of rotation
 //    }
+
+
 //}
 
