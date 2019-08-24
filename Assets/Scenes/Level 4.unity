@@ -476,7 +476,7 @@ PrefabInstance:
     - target: {fileID: 7530748381344615779, guid: 2c43646d9d4c447efa009ea0d4e1b0ec,
         type: 3}
       propertyPath: movementVector.x
-      value: 5.5
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 7530748381344615779, guid: 2c43646d9d4c447efa009ea0d4e1b0ec,
         type: 3}
@@ -933,7 +933,7 @@ PrefabInstance:
     - target: {fileID: 7530748381344615779, guid: 2c43646d9d4c447efa009ea0d4e1b0ec,
         type: 3}
       propertyPath: movementVector.y
-      value: -11
+      value: -16.5
       objectReference: {fileID: 0}
     - target: {fileID: 7530748381344615779, guid: 2c43646d9d4c447efa009ea0d4e1b0ec,
         type: 3}
@@ -1155,7 +1155,7 @@ PrefabInstance:
     - target: {fileID: 7530748381344615779, guid: 2c43646d9d4c447efa009ea0d4e1b0ec,
         type: 3}
       propertyPath: movementVector.x
-      value: 5.5
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 7530748381344615779, guid: 2c43646d9d4c447efa009ea0d4e1b0ec,
         type: 3}
@@ -1529,11 +1529,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5561669015492697590, guid: e433cca0bb43f4038b8b09a0e4a3b199,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 536088948, guid: e433cca0bb43f4038b8b09a0e4a3b199, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1545,6 +1540,11 @@ PrefabInstance:
     - target: {fileID: 1777982624, guid: e433cca0bb43f4038b8b09a0e4a3b199, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5561669015492697590, guid: e433cca0bb43f4038b8b09a0e4a3b199,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e433cca0bb43f4038b8b09a0e4a3b199, type: 3}
@@ -1986,7 +1986,7 @@ PrefabInstance:
     - target: {fileID: 7530748381344615779, guid: 2c43646d9d4c447efa009ea0d4e1b0ec,
         type: 3}
       propertyPath: movementVector.x
-      value: 5.5
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 7530748381344615779, guid: 2c43646d9d4c447efa009ea0d4e1b0ec,
         type: 3}
@@ -2272,7 +2272,7 @@ PrefabInstance:
     - target: {fileID: 7530748381344615779, guid: 2c43646d9d4c447efa009ea0d4e1b0ec,
         type: 3}
       propertyPath: movementVector.x
-      value: 5.5
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 7530748381344615779, guid: 2c43646d9d4c447efa009ea0d4e1b0ec,
         type: 3}
@@ -2443,7 +2443,7 @@ PrefabInstance:
     - target: {fileID: 7530748381344615779, guid: 2c43646d9d4c447efa009ea0d4e1b0ec,
         type: 3}
       propertyPath: movementVector.x
-      value: -5.5
+      value: -7.5
       objectReference: {fileID: 0}
     - target: {fileID: 7530748381344615779, guid: 2c43646d9d4c447efa009ea0d4e1b0ec,
         type: 3}
@@ -2591,7 +2591,7 @@ PrefabInstance:
     - target: {fileID: 7530748381344615779, guid: 2c43646d9d4c447efa009ea0d4e1b0ec,
         type: 3}
       propertyPath: movementVector.x
-      value: -5.5
+      value: -7.5
       objectReference: {fileID: 0}
     - target: {fileID: 7530748381344615779, guid: 2c43646d9d4c447efa009ea0d4e1b0ec,
         type: 3}
@@ -3038,7 +3038,7 @@ PrefabInstance:
     - target: {fileID: 7530748381344615779, guid: 2c43646d9d4c447efa009ea0d4e1b0ec,
         type: 3}
       propertyPath: movementVector.x
-      value: -5.5
+      value: -7.5
       objectReference: {fileID: 0}
     - target: {fileID: 7530748381344615779, guid: 2c43646d9d4c447efa009ea0d4e1b0ec,
         type: 3}
@@ -3421,7 +3421,7 @@ PrefabInstance:
     - target: {fileID: 7530748381344615779, guid: 2c43646d9d4c447efa009ea0d4e1b0ec,
         type: 3}
       propertyPath: movementVector.y
-      value: 11
+      value: 16.5
       objectReference: {fileID: 0}
     - target: {fileID: 7530748381344615779, guid: 2c43646d9d4c447efa009ea0d4e1b0ec,
         type: 3}
@@ -4896,7 +4896,7 @@ PrefabInstance:
     - target: {fileID: 7530748381344615779, guid: 2c43646d9d4c447efa009ea0d4e1b0ec,
         type: 3}
       propertyPath: movementVector.x
-      value: 5.5
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 7530748381344615779, guid: 2c43646d9d4c447efa009ea0d4e1b0ec,
         type: 3}
@@ -4975,7 +4975,7 @@ PrefabInstance:
     - target: {fileID: 7530748381344615779, guid: 2c43646d9d4c447efa009ea0d4e1b0ec,
         type: 3}
       propertyPath: movementVector.x
-      value: 5.5
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 7530748381344615779, guid: 2c43646d9d4c447efa009ea0d4e1b0ec,
         type: 3}
@@ -5059,7 +5059,7 @@ PrefabInstance:
     - target: {fileID: 7530748381344615779, guid: 2c43646d9d4c447efa009ea0d4e1b0ec,
         type: 3}
       propertyPath: movementVector.y
-      value: -11
+      value: -16.5
       objectReference: {fileID: 0}
     - target: {fileID: 7530748381344615779, guid: 2c43646d9d4c447efa009ea0d4e1b0ec,
         type: 3}
@@ -5138,7 +5138,7 @@ PrefabInstance:
     - target: {fileID: 7530748381344615779, guid: 2c43646d9d4c447efa009ea0d4e1b0ec,
         type: 3}
       propertyPath: movementVector.x
-      value: -5.5
+      value: -7.5
       objectReference: {fileID: 0}
     - target: {fileID: 7530748381344615779, guid: 2c43646d9d4c447efa009ea0d4e1b0ec,
         type: 3}
@@ -5508,7 +5508,7 @@ PrefabInstance:
     - target: {fileID: 7530748381344615779, guid: 2c43646d9d4c447efa009ea0d4e1b0ec,
         type: 3}
       propertyPath: movementVector.y
-      value: 11
+      value: 16.5
       objectReference: {fileID: 0}
     - target: {fileID: 7530748381344615779, guid: 2c43646d9d4c447efa009ea0d4e1b0ec,
         type: 3}
@@ -6001,7 +6001,7 @@ PrefabInstance:
     - target: {fileID: 7530748381344615779, guid: 2c43646d9d4c447efa009ea0d4e1b0ec,
         type: 3}
       propertyPath: movementVector.x
-      value: -5.5
+      value: -7.5
       objectReference: {fileID: 0}
     - target: {fileID: 7530748381344615779, guid: 2c43646d9d4c447efa009ea0d4e1b0ec,
         type: 3}
@@ -6149,7 +6149,7 @@ PrefabInstance:
     - target: {fileID: 7530748381344615779, guid: 2c43646d9d4c447efa009ea0d4e1b0ec,
         type: 3}
       propertyPath: movementVector.x
-      value: -5.5
+      value: -7.5
       objectReference: {fileID: 0}
     - target: {fileID: 7530748381344615779, guid: 2c43646d9d4c447efa009ea0d4e1b0ec,
         type: 3}
