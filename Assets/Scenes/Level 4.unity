@@ -943,7 +943,7 @@ PrefabInstance:
     - target: {fileID: 7530748381344615779, guid: 2c43646d9d4c447efa009ea0d4e1b0ec,
         type: 3}
       propertyPath: period
-      value: 2.5
+      value: 4.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c43646d9d4c447efa009ea0d4e1b0ec, type: 3}
@@ -3426,7 +3426,7 @@ PrefabInstance:
     - target: {fileID: 7530748381344615779, guid: 2c43646d9d4c447efa009ea0d4e1b0ec,
         type: 3}
       propertyPath: period
-      value: 2.5
+      value: 4.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c43646d9d4c447efa009ea0d4e1b0ec, type: 3}
@@ -5064,7 +5064,7 @@ PrefabInstance:
     - target: {fileID: 7530748381344615779, guid: 2c43646d9d4c447efa009ea0d4e1b0ec,
         type: 3}
       propertyPath: period
-      value: 2.5
+      value: 4.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c43646d9d4c447efa009ea0d4e1b0ec, type: 3}
@@ -5513,7 +5513,7 @@ PrefabInstance:
     - target: {fileID: 7530748381344615779, guid: 2c43646d9d4c447efa009ea0d4e1b0ec,
         type: 3}
       propertyPath: period
-      value: 2.5
+      value: 4.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c43646d9d4c447efa009ea0d4e1b0ec, type: 3}
